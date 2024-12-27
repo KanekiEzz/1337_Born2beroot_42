@@ -1,0 +1,123 @@
+speedtest-cli --list
+speedtest-cli --simple
+ 		      ================lsblk================
+Lsblk => liste block
+Sda =>  Physical Volume
+
+	  |---- sd1
+Prtition -|---- sd2
+	  |---- sd5
+
+Sd2 => BIOS/EFI
+Sd5 => ya7tawi 3la (LVM) Logical Volume Group
+/ => root filesystem
+/swap => swap space
+/home => all user home directories
+/var => variable data, such as logs
+/srv => services-related data || storing data for services provided by the system.
+/tmp => services-related data
+/log => log files
+/etc => directory use configuration files
+
+ 		      ================ufw && ssh================
+Change to port ssh =>	sudo vim /etc/ssh/ssh_config
+Check ssh =>	sudo service ssh status
+		sudo service ssh
+	Usage: /etc/init.d/ssh {start|stop|reload|force-reload|restart|try-restart|status}
+
+Check ufw =>	sudo service ufw status
+Check port allow =>	sudo ufw status
+Add port in by afw =>	sudo ufw allow 4242
+See all numbered in uff allow =>	sudo ufw status numbered
+Remove port in ufw =>	sudo ufw delete <number>
+
+root    ALL=(ALL:ALL) ALL +++++> the root user permission to execute any command as any user or group on all machines
+iezzam ALL=(ALL:ALL) ALL  +++++> This gives the iezzam user the same permissions as the root user, allowing them to execute any command as any user or group
+%sudo ALL=(ALL:ALL) ALL   ++++>  all users in the sudo group the ability to execute any command with elevated privileges.
+iezzam ALL=(root) NOPASSWD: /usr/local/bin/monitoring.sh ++++> This rule allows iezzam to execute the /usr/local/bin/monitoring.sh script as root without requiring a password prompt.
+
+Port 80 by default HTTP && port 80 for transmiting data between web servers and web browsers.
+Port 8080 (tcp/udp) used for web traffic
+ 
+
+				================App armor================
+Systemctl status apparmor
+
+			 ================group &&  user================
+
+
+whoami or users 
+See all user => sudo genet passed or sudo cat /etc/passwd
+sudo adduser kaneki
+sudo addgroup evaluation
+genet group evaluation
+sudo adduser kaneki evaluation
+sudo userdel -r kaneki
+Sudo groupdel evaluation
+
+			 ================hostname================
+hostname
+vim /etc/hostname
+
+ 		      ================password policy================
+Setting up a strong pass policy:
+
+Password policy max and  min =>	vim /etc/login.defs
+Command to check all permisiton password =>	sudo chage -l <username>
+Command how to use password => 	sudo vim /etc/pam.d/common-password
+See sudo permission =>	sudo vim /etc/sudoers or sudo visudo
+See max and min => sudo chage -l iezzam
+
+ 		      ================crontab================
+sudo systemctl status cron
+sudo systemctl stop cron
+sudo systemctl start cron
+Sudo crontab -u root -e
+Use crontab time 10m
+ */10 * * * * bash /usr/local/bin/sleep.sh && bash /usr/local/bin/monitoring.sh
+
+		      ================script================
+Use all my script:
+	cd /usr/local/bin/	see file : monitoring.sh && sleep.sh &&  speedtest_with_art.sh
+
+My script use information in file monitoring.sh
+
+/proc/cpuinfo => info to cpu
+CPU Physical => hardware in your computer
+CPU Virtual => virtual machines
+
+			==========Network============
+sudo systemctl start NetworkManager
+sudo systemctl enable NetworkManager
+sudo systemctl status NetworkManager
+sudo systemctl restart NetworkManager
+sudo systemctl stop NetworkManager
+nmcli device wifi list
+nmcli device wifi connect <SSID> password <password>
+10.0.2.15 | 127.0.0.1
+			==========change hostname============
+sudo hostnamectl set-hostname <new_hostname>
+hostnamectl status
+
+
+
+
+
+Nov 30 14:24:16 : root : TTY=pts/0 ; PWD=/var/log/sudo ; USER=root ; TSID=0Q ;
+    COMMAND=/usr/bin/ls
+root@kaneki:/var/log/sudo# sudoreplay /var/log/sudo-io/00/00/0Q
+Replaying sudo session: /usr/bin/ls
+sudo.log
+root@kaneki:/var/log/sudo#
+
+
+
+Sudo systemctl status
+
+hostnamectl set-hostname kaneki
+sudo nano /etc/hosts
+
+
+
+35d6e785d399292e95e904285d43f06641ee5ad7  born_berrotv_.vdi
+35d6e785d399292e95e904285d43f06641ee5ad7  born_berrotv_.vdi
