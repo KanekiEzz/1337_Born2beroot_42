@@ -47,7 +47,7 @@ Systemctl status apparmor
 
 
 whoami or users 
-See all user => sudo genet passed or sudo cat /etc/passwd
+See all user => sudo genet passwd or sudo cat /etc/passwd
 sudo adduser kaneki
 sudo addgroup evaluation
 genet group evaluation
